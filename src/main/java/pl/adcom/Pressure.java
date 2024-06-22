@@ -11,8 +11,7 @@ public class Pressure {
     private LocalTime startedMeassure;
     private long userId;
 
-    public Pressure(long id, int upperPressure, int lowerPressure, int pulse, LocalTime startedMeassure, long userId) {
-        this.id = id;
+    public Pressure(int upperPressure, int lowerPressure, int pulse, LocalTime startedMeassure, long userId) {
         this.upperPressure = upperPressure;
         this.lowerPressure = lowerPressure;
         this.pulse = pulse;
@@ -20,12 +19,9 @@ public class Pressure {
         this.userId = userId;
     }
 
-    public Pressure(int upperPressure, int lowerPressure, int pulse, LocalTime startedMeassure, long userId) {
-        this.upperPressure = upperPressure;
-        this.lowerPressure = lowerPressure;
-        this.pulse = pulse;
-        this.startedMeassure = startedMeassure;
-        this.userId = userId;
+    public Pressure(long id, int upperPressure, int lowerPressure, int pulse, LocalTime startedMeassure, long userId) {
+        this.id = id;
+        new Pressure(upperPressure, lowerPressure, pulse, startedMeassure, userId);
     }
 
     public long getUserId() {

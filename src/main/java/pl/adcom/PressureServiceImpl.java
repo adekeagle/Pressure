@@ -15,7 +15,7 @@ public class PressureServiceImpl implements PressureService {
     @Override
     public void addPressure(Pressure pressure) {
         connection = DBConnection.getInstance().getConnection();
-        String sql = "INSERT INTO PRESSURE (id, upperPressure, lowerPressure, pulse, startedMeassure, userId) VALUES(?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO PRESSURES (id, upperPressure, lowerPressure, pulse, startedMeassure, userId) VALUES(?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -34,7 +34,7 @@ public class PressureServiceImpl implements PressureService {
     @Override
     public Pressure getPressureById(long id) {
         connection = DBConnection.getInstance().getConnection();
-        String sql = "SELECT * FROM PRESSURE WHERE id = ?";
+        String sql = "SELECT * FROM PRESSURES WHERE id = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setLong(1, id);
@@ -58,7 +58,7 @@ public class PressureServiceImpl implements PressureService {
     @Override
     public List<Pressure> getAllPressuresForUser(long userId) {
         connection = DBConnection.getInstance().getConnection();
-        String sql = "SELECT * FROM PRESSURE WHERE userId = ?";
+        String sql = "SELECT * FROM PRESSURES WHERE userId = ?";
         List<Pressure> pressures = new ArrayList<>();
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -83,7 +83,7 @@ public class PressureServiceImpl implements PressureService {
     @Override
     public void updatePressure(Pressure pressure) {
         connection = DBConnection.getInstance().getConnection();
-        String sql = "UPDATE PRESSURE SET upperPressure = ?, lowerPressure = ?, pulse = ?, startedMeassure = ?, userId = ? WHERE id = ?";
+        String sql = "UPDATE PRESSURES SET upperPressure = ?, lowerPressure = ?, pulse = ?, startedMeassure = ?, userId = ? WHERE id = ?";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -102,7 +102,7 @@ public class PressureServiceImpl implements PressureService {
     @Override
     public void deletePressure(long id) {
         connection = DBConnection.getInstance().getConnection();
-        String sql = "DELETE FROM PRESSURE WHERE id = ?";
+        String sql = "DELETE FROM PRESSURES WHERE id = ?";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
