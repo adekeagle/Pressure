@@ -14,7 +14,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void addUser(User user) {
         connection = DBConnection.getInstance().getConnection();
-        String sql = "INSERT INTO USER (id, firstName, lastName, gender, email) VALUES(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO USERS (id, firstName, lastName, gender, email) VALUES(?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserById(long id) {
         connection = DBConnection.getInstance().getConnection();
-        String sql = "SELECT * FROM USER WHERE id = ?";
+        String sql = "SELECT * FROM USERS WHERE id = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setLong(1, id);
@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUsers() {
         connection = DBConnection.getInstance().getConnection();
-        String sql = "SELECT * FROM USER";
+        String sql = "SELECT * FROM USERS";
         List<User> users = new ArrayList<>();
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateUser(User user) {
         connection = DBConnection.getInstance().getConnection();
-        String sql = "UPDATE USER SET firstName = ?, lastName = ?, gender = ?, email = ? WHERE id = ?";
+        String sql = "UPDATE USERS SET firstName = ?, lastName = ?, gender = ?, email = ? WHERE id = ?";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -96,7 +96,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(long id) {
         connection = DBConnection.getInstance().getConnection();
-        String sql = "DELETE FROM USER WHERE id = ?";
+        String sql = "DELETE FROM USERS WHERE id = ?";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);

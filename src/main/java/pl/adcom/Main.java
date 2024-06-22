@@ -17,8 +17,6 @@ public class Main {
         JPanel userPanel = new JPanel();
         userPanel.setLayout(new GridLayout(6, 2));
 
-        JLabel userIdLabel = new JLabel("User ID:");
-        JTextField userIdField = new JTextField();
         JLabel firstNameLabel = new JLabel("First Name:");
         JTextField firstNameField = new JTextField();
         JLabel lastNameLabel = new JLabel("Last Name:");
@@ -30,8 +28,6 @@ public class Main {
 
         JButton addUserButton = new JButton("Add User");
 
-        userPanel.add(userIdLabel);
-        userPanel.add(userIdField);
         userPanel.add(firstNameLabel);
         userPanel.add(firstNameField);
         userPanel.add(lastNameLabel);
@@ -48,7 +44,6 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 UserService userService = new UserServiceImpl();
                 User user = new User(
-                        Long.parseLong(userIdField.getText()),
                         firstNameField.getText(),
                         lastNameField.getText(),
                         (Gender) genderComboBox.getSelectedItem(),
@@ -64,8 +59,6 @@ public class Main {
         JPanel pressurePanel = new JPanel();
         pressurePanel.setLayout(new GridLayout(7, 2));
 
-        JLabel pressureIdLabel = new JLabel("Pressure ID:");
-        JTextField pressureIdField = new JTextField();
         JLabel upperPressureLabel = new JLabel("Upper Pressure:");
         JTextField upperPressureField = new JTextField();
         JLabel lowerPressureLabel = new JLabel("Lower Pressure:");
@@ -79,8 +72,6 @@ public class Main {
 
         JButton addPressureButton = new JButton("Add Pressure");
 
-        pressurePanel.add(pressureIdLabel);
-        pressurePanel.add(pressureIdField);
         pressurePanel.add(upperPressureLabel);
         pressurePanel.add(upperPressureField);
         pressurePanel.add(lowerPressureLabel);
@@ -99,7 +90,6 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 PressureService pressureService = new PressureServiceImpl();
                 Pressure pressure = new Pressure(
-                        Long.parseLong(pressureIdField.getText()),
                         Integer.parseInt(upperPressureField.getText()),
                         Integer.parseInt(lowerPressureField.getText()),
                         Integer.parseInt(pulseField.getText()),

@@ -8,12 +8,16 @@ public class User {
     private Gender gender;
     private String email;
 
-    public User(long id, String firstName, String lastName, Gender gender, String email) {
-        this.id = id;
+    public User(String firstName, String lastName, Gender gender, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
         this.email = email;
+    }
+
+    public User(long id, String firstName, String lastName, Gender gender, String email) {
+        this.id = id;
+        new User(firstName, lastName, gender, email);
     }
 
     public long getId() {
